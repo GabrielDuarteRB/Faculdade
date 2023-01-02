@@ -1,0 +1,10 @@
+# ninja log v5
+2	84	6891775954882669	CMakeFiles/lista_3.dir/ex1.c.obj	86c3a3782d9f1f4f
+146	368	6892678895761350	lista_3.exe	733b423be0c2752d
+1	146	6892678893681212	CMakeFiles/lista_3.dir/ex7.c.obj	852e27e0397c0828
+1	78	6891800932328172	CMakeFiles/lista_3.dir/ex5.c.obj	2ed60e9ccc98833f
+0	237	6899217180027978	build.ninja	a265e5e111a6bebf
+4	98	6891779419894841	CMakeFiles/lista_3.dir/ex2.c.obj	68c65b2148a890a7
+2	97	6891783685490277	CMakeFiles/lista_3.dir/ex3.c.obj	be5ac6d50605dc60
+2	85	6891795988420891	CMakeFiles/lista_3.dir/ex4.c.obj	e215b20ef8809de6
+1	79	6891812876689821	CMakeFiles/lista_3.dir/ex6.c.obj	442f8c87348e9d79

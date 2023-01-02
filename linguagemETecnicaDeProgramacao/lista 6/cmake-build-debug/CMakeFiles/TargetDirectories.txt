@@ -1,0 +1,3 @@
+D:/faculdade/linguagemETecnicaDeProgramacao/lista 6/cmake-build-debug/CMakeFiles/lista_6.dir
+D:/faculdade/linguagemETecnicaDeProgramacao/lista 6/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/faculdade/linguagemETecnicaDeProgramacao/lista 6/cmake-build-debug/CMakeFiles/rebuild_cache.dir

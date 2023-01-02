@@ -1,0 +1,11 @@
+# ninja log v5
+0	123	6890168025630839	build.ninja	1052809dcc2c4647
+0	79	6873249415712183	CMakeFiles/lista_1.dir/exe2.c.obj	346e3a608affb6ce
+88	204	6873295774185157	lista_1.exe	c1b04750bbb94d29
+2	88	6873290595011878	CMakeFiles/lista_1.dir/exe7.c.obj	df502280147a7eab
+0	100	6873277639054924	CMakeFiles/lista_1.dir/exe3.c.obj	ff28f1a4c848c27a
+1	90	6873282333243159	CMakeFiles/lista_1.dir/exe5.c.obj	41284af1d34b44d2
+2	96	6873279761301933	CMakeFiles/lista_1.dir/exe4.c.obj	b485b9f8b251d2f1
+2	81	6873293192863632	CMakeFiles/lista_1.dir/exe8.c.obj	8632adcf9c4207eb
+2	79	6873287167358381	CMakeFiles/lista_1.dir/exe6.c.obj	64f32a98b69f2211
+1	87	6873295773035506	CMakeFiles/lista_1.dir/exe10.c.obj	ce96f2e7359cea46
