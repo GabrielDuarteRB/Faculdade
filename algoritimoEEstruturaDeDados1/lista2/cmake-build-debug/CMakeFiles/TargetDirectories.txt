@@ -1,0 +1,3 @@
+D:/faculdade/algoritimoEEstruturaDeDados1/lista2/cmake-build-debug/CMakeFiles/lista2.dir
+D:/faculdade/algoritimoEEstruturaDeDados1/lista2/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/faculdade/algoritimoEEstruturaDeDados1/lista2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
