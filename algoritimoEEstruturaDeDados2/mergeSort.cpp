@@ -1,60 +1,75 @@
-int merge(int vetor[], int esquerda, int meio, int direita) {
+#include <stdio.h>
 
-    int[] novoVetor = new int[vetor.length];
+void merge(int vetor[], int esquerda, int meio, int direita) {
 
-    for(i = esquerda; i <= direita; i++) {
-        novoVetor[i] = vetor[i];
+    int i, j, k;
+    int n1 = meio - esquerda + 1;
+    int n2 = direita - meio;
+
+    int arrayEsquerdo[n1], arrayDireito[n2];
+
+    for(i = 0; i < n1; i++) {
+        arrayEsquerdo[i] = vetor[esquerda + i];
     }
 
-    int contNovoVetor = esquerda;
-    int m = meio + 1
-    int contVetor = esquerda;
+    for(j = 0; j < n2; j++) {
+        arrayDireito[j] = vetor[meio + 1 + j];
+    }
 
-    while(contNovoVetor <= meio && m <= direita) {
+    i = 0;
+    j = 0;
+    k = esquerda;
+
+    while(i < n1 && j < n2) {
         
-        if(novoVetor[contNovoVetor] <= novoVetor[m]) {
-            vetor[contVetor] = novoVetor[contNovoVetor];
-            contNovoVetor++;
+        if(arrayEsquerdo[i] <= arrayDireito[j]) {
+            vetor[k] = arrayEsquerdo[i];
+            i++;
         } else {
-            vetor[contVetor] = novoVetor[m];
-            m++;
+            vetor[k] = arrayDireito[j];
+            j++;
         }
-        contVetor++
+        k++;
     }
 
-    while(esquerda <= meio) {
-        vetor[contVetor] = novoVetor[contNovoVetor];
-        contNovoVetor++;
-        contVetor++;
+    while(i < n1) {
+        vetor[k] = arrayEsquerdo[i];
+        i++;
+        k++;
     }
 
-    while(direita <= meio) {
-        vetor[contVetor] = novoVetor[m];
-        m++;
-        contVetor++;
+    while(j < n2) {
+        vetor[k] = arrayDireito[j];
+        j++;
+        k++;
     }
 
 }
 
-int mergeSort(int vetor[], int esquerda, int direita) {
+void mergeSort(int vetor[], int esquerda, int direita) {
 
-    if(esquerda >= direita) return;
+    if(esquerda < direita) {
+        int meio = esquerda + (direita - esquerda) / 2;
 
-    int meio = (esquerda + direita) / 2
+        mergeSort(vetor, esquerda, meio);
+        mergeSort(vetor, meio+1, direita);
 
-    mergeSort(vetor, esquerda, meio);
-    mergeSort(vetor, meio+1, direita);
+        merge(vetor, esquerda, meio, direita);
+    } 
 
-    merge(vetor, esquerda, meio, direita);
 
 }
 
 int main() {
-    int vetor = [8, 23, 1, 2, 43, 3, 87, 16, 22, 9];
-    int esquerda = 0;
-    int direita = vetor.length - 1;
+    int vetor[] = {20, 11, 30, 5, 2, 40, 100, 32, 98, 1, 53, 6};
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
 
-    mergeSort(vetor, esquerda, direita);
+    mergeSort(vetor, 0, tamanho - 1);
 
-    for(int i = 0; i <= vetor.length; i++) vetor[i];
+    for(int i = 0; i < tamanho; i++) {
+        printf("%d ", vetor[i]);
+    }
+
+    getchar();
+    return 0;
 }
