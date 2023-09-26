@@ -1,54 +1,50 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 struct Aluno {
     char nome[60];
     float nota;
-    struct Aluno *prox, *ant;
-} *inicio = NULL;
+    struct Aluno *prox;
+}*inicio = NULL;
 
-void bubbleSortAlunos(Aluno *alunos) {
-    struct Aluno *aux;
+void bubbleSortAlunos() {
+    struct Aluno *aux = inicio, *alunos = inicio, *teste;
     char nome[60];
     float nota;
-
-
-    while(alunos->ant != NULL){
-        alunos = alunos->ant;
-    }
 
     do {
         aux = alunos;
 
         do {
-            if(alunos->nota > aux->nota) {
+            if(alunos->nota < aux->nota) {
                 strcpy(nome, alunos->nome);
                 nota = alunos->nota;
                 
                 strcpy(alunos->nome, aux->nome);
                 alunos->nota = aux->nota;
 
-                strcpy(aux->nome, alunos->nome);
+                strcpy(aux->nome, nome);
                 aux->nota = nota;
             }
             aux = aux->prox;
-        }while(aux->prox != NULL);
+        }while(aux != NULL);
 
         alunos = alunos->prox;        
 
-    } while(alunos->prox != NULL);
+    } while(alunos != NULL);
 
 }
 
 void inserirAlunos() {
-    struct Aluno *alunos = inicio, *novo;
-    novo = new struct Alunos();
+    struct Aluno *novo;
+    novo = new struct Aluno();
 
     printf("\nDigite o nome do aluno: ");
     scanf("%s", &novo->nome);
     printf("\nDigite a nota dele: ");
     scanf("%f", &novo->nota);
+    novo->prox = inicio;
+    inicio = novo;
 }
 
 int main() {
@@ -58,35 +54,28 @@ int main() {
     int continuar;
 
     for(int i = 0; i < 5; i++) {
-        
+        inserirAlunos();
     }
 
     printf("Digite 1 para continuar e outro digito para sair: ");
     scanf("%d", &continuar);
 
     while(continuar == 1) {
-        printf("\nDigite o nome do aluno: ");
-        scanf("%c", &nome);
-        printf("\nDigite a nota dele: ");
-        scanf("%f", &nota);
-
-        strcpy(alunos->nome, nome);
-        alunos->nota = nota;
-        alunos = alunos->prox;
+        inserirAlunos();
 
         printf("Digite 1 para continuar e outro digito para sair: ");
         scanf("%d", &continuar);
     }
 
-    bubbleSortAlunos(alunos);
+    bubbleSortAlunos();
 
     struct Aluno *aux = inicio;
 
     do{
-        printf("\n%c", aux->nome);
-        printf("\n%d", aux->nota);
+        printf("\n%s ", aux->nome);
+        printf("%.2f", aux->nota);
         aux = aux->prox;
-    }while(aux != inicio);
+    }while(aux != NULL);
 
     return 0;
 }
