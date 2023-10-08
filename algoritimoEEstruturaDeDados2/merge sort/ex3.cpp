@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void merge(int vetor[], int esquerda, int meio, int direita) {
+void merge(int vetor[], int esquerda, int meio, int direita, int *comparacoes, int *movimentacoes) {
 
     int i, j, k;
     int n1 = meio - esquerda + 1;
@@ -21,7 +21,7 @@ void merge(int vetor[], int esquerda, int meio, int direita) {
     k = esquerda;
 
     while(i < n1 && j < n2) {
-        
+        (*comparacoes)++;
         if(arrayEsquerdo[i] <= arrayDireito[j]) {
             vetor[k] = arrayEsquerdo[i];
             i++;
@@ -29,6 +29,7 @@ void merge(int vetor[], int esquerda, int meio, int direita) {
             vetor[k] = arrayDireito[j];
             j++;
         }
+        (*movimentacoes)++;
         k++;
     }
 
@@ -36,49 +37,45 @@ void merge(int vetor[], int esquerda, int meio, int direita) {
         vetor[k] = arrayEsquerdo[i];
         i++;
         k++;
+        (*movimentacoes)++;
     }
 
     while(j < n2) {
         vetor[k] = arrayDireito[j];
         j++;
         k++;
+        (*movimentacoes)++;
     }
-
 }
 
-void mergeSort(int vetor[], int esquerda, int direita) {
+void mergeSort(int vetor[], int esquerda, int direita, int *comparacoes, int *movimentacoes) {
+
 
     if(esquerda < direita) {
         int meio = esquerda + (direita - esquerda) / 2;
 
-        mergeSort(vetor, esquerda, meio);
-        mergeSort(vetor, meio+1, direita);
+        mergeSort(vetor, esquerda, meio, comparacoes, movimentacoes);
+        mergeSort(vetor, meio+1, direita, comparacoes, movimentacoes);
 
-        merge(vetor, esquerda, meio, direita);
+        merge(vetor, esquerda, meio, direita, comparacoes, movimentacoes);
     } 
 }
 
-void adicionarNotas(int tamanho, int array[]) {
-    for(int t = 0; t < tamanho; t++) {
-        printf("Digite a nota %d: ", t+1);
-        scanf("%d", &array[t]);
-    }
-}
-
 int main() {
-    int tamanho;
+    int vetor[] = {20, 11, 30, 5, 2, 40, 100, 32, 98, 1, 53, 6};
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
 
-    printf("Quantas notas o Yago tirou? ");
-    scanf("%d", &tamanho);
-    int vetor[tamanho];
+    int comparacoes = 0;
+    int movimentacoes = 0;
 
-    adicionarNotas(tamanho, vetor);
-
-    mergeSort(vetor, 0, tamanho - 1);
+    mergeSort(vetor, 0, tamanho - 1, &comparacoes, &movimentacoes);
 
     for(int i = 0; i < tamanho; i++) {
         printf("%d ", vetor[i]);
     }
+
+    printf("\nNúmero de comparações: %d\n", comparacoes);
+    printf("Número de movimentações: %d\n", movimentacoes);
 
     getchar();
     return 0;

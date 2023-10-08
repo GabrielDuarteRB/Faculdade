@@ -22,7 +22,7 @@ void merge(int vetor[], int esquerda, int meio, int direita) {
 
     while(i < n1 && j < n2) {
         
-        if(arrayEsquerdo[i] <= arrayDireito[j]) {
+        if(arrayEsquerdo[i] >= arrayDireito[j]) {
             vetor[k] = arrayEsquerdo[i];
             i++;
         } else {
@@ -56,23 +56,13 @@ void mergeSort(int vetor[], int esquerda, int direita) {
 
         merge(vetor, esquerda, meio, direita);
     } 
-}
 
-void adicionarNotas(int tamanho, int array[]) {
-    for(int t = 0; t < tamanho; t++) {
-        printf("Digite a nota %d: ", t+1);
-        scanf("%d", &array[t]);
-    }
+
 }
 
 int main() {
-    int tamanho;
-
-    printf("Quantas notas o Yago tirou? ");
-    scanf("%d", &tamanho);
-    int vetor[tamanho];
-
-    adicionarNotas(tamanho, vetor);
+    int vetor[] = {20, 11, 30, 5, 2, 40, 100, 32, 98, 1, 53, 6};
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
 
     mergeSort(vetor, 0, tamanho - 1);
 
