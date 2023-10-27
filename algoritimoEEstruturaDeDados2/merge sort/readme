@@ -1,0 +1,8 @@
+1 - Yago fez a cadeira de estrutura de dados na faculdade em sua faculdade, 
+ajude ele a colocar suas notas em ordem crescente, 
+utilizando o merge sort para conseguir um melhor desempenho. 
+No final informe qual foi a maior nota tirada por yago.
+
+2 - Gere um codigo Merge Sort, ordenando os valores em ordem decrescente, e depois imprima eles na tela.
+
+3 - Faça um codigo de Merge Sorte decrescente e verifique quantas comparações e movimentações foram necessarias  no processo. Imprima isso na tela, juntamente com o array ordenado.
