@@ -89,30 +89,34 @@ void inserir(AVP **A, int chave, int valor) {
     (*A)->cor = Cor::Preta;
 }
 
-void imprimirEmOrdem(AVP *raiz) {
+void imprimirOMaior(AVP *raiz) {
+    AVP *aux = raiz;
+
     if (raiz == NULL) {
+        printf("Arvore vazia!");
         return;
     }
 
-    imprimirEmOrdem(raiz->esq);
+    while(aux->dir != NULL) {
+        aux = aux->dir;
+    }
 
-    printf("Chave: %d, Valor: %d, Cor: %c\n", raiz->chave, raiz->valor, (raiz->cor == Cor::Vermelha) ? 'V' : 'P');
+    printf("Chave: %d, Valor: %d, Cor: %c\n", aux->chave, aux->valor, (aux->cor == Cor::Vermelha) ? 'V' : 'P');
 
-    imprimirEmOrdem(raiz->dir);
 }
 
 int main() {
     AVP *A = NULL;
 
-    int numeros[] = {2, 6, 1, 20, 3, 60, 17, 28, 49};
+    int numeros[] = {3, 8, 1, 2, 19, 23, 5, 78, 29, 17, 22, 100};
     int num_elementos = sizeof(numeros) / sizeof(numeros[0]);
 
     for (int i = 0; i < num_elementos; i++) {
         inserir(&A, numeros[i], 0);
     }
 
-    printf("Arvore Vermelha e Preta: \n");
-    imprimirEmOrdem(A);
+    printf("Maior numero: \n");
+    imprimirOMaior(A);
 
     getchar();
     getchar();
